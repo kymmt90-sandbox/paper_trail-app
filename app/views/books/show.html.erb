@@ -17,3 +17,14 @@
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+<hr>
+
+<ul>
+<% @book.versions.each do |version| %>
+  <li>
+    <strong><%= version.index.succ %>:</strong>
+    <%= passivated_event_name(version).capitalize %> at <%= created_at(version) %>
+  </li>
+<% end %>
+</ul>
